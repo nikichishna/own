@@ -69,19 +69,19 @@ def net():
  neurodic = {}
  # проверяем нажатие сабмит и валидацию введенных данных
  if form.validate_on_submit():
- # файлы с изображениями читаются из каталога static
- filename = os.path.join('./static', secure_filename(form.upload.data.filename))
- fcount, fimage = neuronet.read_image_files(10,'./static')
- # передаем все изображения в каталоге на классификацию
- # можете изменить немного код и передать только загруженный файл
- decode = neuronet.getresult(fimage)
- # записываем в словарь данные классификации
- for elem in decode:
- neurodic[elem[0][1]] = elem[0][2]
- # сохраняем загруженный файл
- form.upload.data.save(filename)
- # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
- # сети если был нажат сабмит, либо передадим falsy значения
+  # файлы с изображениями читаются из каталога static
+  filename = os.path.join('./static', secure_filename(form.upload.data.filename))
+  fcount, fimage = neuronet.read_image_files(10,'./static')
+  # передаем все изображения в каталоге на классификацию
+  # можете изменить немного код и передать только загруженный файл
+  decode = neuronet.getresult(fimage)
+  # записываем в словарь данные классификации
+  for elem in decode:
+   neurodic[elem[0][1]] = elem[0][2]
+  # сохраняем загруженный файл
+  form.upload.data.save(filename)
+  # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
+  # сети если был нажат сабмит, либо передадим falsy значения
  return render_template('net.html',form=form,image_name=filename,neurodic=neurodic) 
 from flask import request
 from flask import Response
