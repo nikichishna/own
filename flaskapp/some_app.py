@@ -28,7 +28,6 @@ from flask_wtf.file import FileField, FileAllowed, FileRequired
 SECRET_KEY = 'secret'
 app.config['SECRET_KEY'] = SECRET_KEY
 # используем капчу и полученные секретные ключи с сайта google 
-82
 app.config['RECAPTCHA_USE_SSL'] = False
 app.config['RECAPTCHA_PUBLIC_KEY'] = 'сюда поместить ключ из google'
 app.config['RECAPTCHA_PRIVATE_KEY'] = 'сюда поместить секретный ключ из google'
@@ -67,7 +66,6 @@ def net():
  form = NetForm()
  # обнуляем переменные передаваемые в форму
  filename=None
-83
  neurodic = {}
  # проверяем нажатие сабмит и валидацию введенных данных
  if form.validate_on_submit():
