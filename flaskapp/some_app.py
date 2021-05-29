@@ -119,7 +119,7 @@ def apinet():
  ret = json.dumps(neurodic)
  # готовим ответ пользователю
  resp = Response(response=ret,
- status=200,
- mimetype="application/json")
+  status=200,
+  mimetype="application/json")
  # возвращаем ответ
  return resp 
